@@ -26,10 +26,10 @@ public class NettyClient {
 
     //编写方法使用代理模式，获取一个代理对象
 
-    public Object getBean(final Class<?> serivceClass, final String providerName) {
+    public Object getBean(final Class<?> serviceClass, final String providerName) {
 
         return Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(),
-                new Class<?>[]{serivceClass}, (proxy, method, args) -> {
+                new Class<?>[]{serviceClass}, (proxy, method, args) -> {
 
                     System.out.println("(proxy, method, args) 进入...." + (++count) + " 次");
                     //{}  部分的代码，客户端每调用一次 hello, 就会进入到该代码
